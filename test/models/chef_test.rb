@@ -3,7 +3,7 @@ require 'test_helper'
 class ChefTest < ActiveSupport::TestCase
     
   def setup
-    @chef = Chef.new(chefname: "test chefname", email: "test@example.com")
+    @chef = Chef.new(chefname: "test chefname", email: "test@example.com", password: "password")
   end
   
   test "chef should be valid" do
@@ -48,7 +48,7 @@ class ChefTest < ActiveSupport::TestCase
     
     valid_addresses.each do |va|
       @chef.email = va
-      assert @chef.valid?, '#{va.inspect} should be valid'
+      assert @chef.valid?, "#{va.inspect} should be valid"
     end
   end
   
@@ -57,7 +57,7 @@ class ChefTest < ActiveSupport::TestCase
     
     invalid_addresses.each do |ia|
       @chef.email = ia
-      assert_not @chef.valid?, '#{ia.inspect} should be invalid'
+      assert_not @chef.valid?, "#{ia.inspect} should be invalid"
     end    
   end
   
