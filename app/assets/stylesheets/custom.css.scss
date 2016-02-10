@@ -100,4 +100,26 @@ span.picture {
 
 .show_recipe {
     margin: 10px 10px 10px 10px;
+    
+    img {
+        max-height: 210px;
+        max-width: 730px;
+    }
+}
+
+.index_recipe_img {
+    max-height: 150px;
+    max-width: 250px;
+}
+
+.v_center {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+    margin-bottom: 20px;
+}
+
+.img_col {
+    width: 280px;
+    padding-left: 48px;
 }
