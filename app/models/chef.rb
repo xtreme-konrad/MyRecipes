@@ -14,4 +14,12 @@ class Chef < ActiveRecord::Base
                     format: { with: VALID_EMAIL_REGEX }
                     
   has_secure_password
+  
+  def chefname=(chefname)
+    write_attribute(:chefname, chefname.capitalize)
+  end
+
+  def chefname
+    read_attribute(:chefname).try(:titleize)
+  end
 end
