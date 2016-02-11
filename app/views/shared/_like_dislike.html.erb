@@ -1,0 +1,14 @@
+<div class="pull-right">
+  
+  <% css_class = recipe.user_liked(current_user) ? "selected_like" : "" %>
+  <%= link_to like_recipe_path(recipe, like:true), class: "like_icon #{css_class}", method: :post do %>
+    <i class="glyphicon glyphicon-thumbs-up" ></i> &nbsp <%= recipe.thumbs_up_total %>
+  <% end %>
+
+  &nbsp&nbsp&nbsp&nbsp 
+  
+  <% css_class = recipe.user_disliked(current_user) ? "selected_dislike" : "" %>
+  <%= link_to like_recipe_path(recipe, like:false), class: "like_icon #{css_class}", method: :post do %>
+    <i class="glyphicon glyphicon-thumbs-down" ></i> &nbsp <%= recipe.thumbs_down_total %>
+  <% end %>
+</div>
