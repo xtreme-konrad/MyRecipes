@@ -19,8 +19,16 @@ class Recipe < ActiveRecord::Base
     self.likes.where(like: true).size
   end
   
+  def user_liked(current_user)
+    self.likes.where(chef: current_user, like: true).any?
+  end
+  
   def thumbs_down_total
     self.likes.where(like: false).size
+  end
+  
+  def user_disliked(current_user)
+    self.likes.where(chef: current_user, like: false).any?
   end
   
   private
