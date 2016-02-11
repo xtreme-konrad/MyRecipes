@@ -11,37 +11,39 @@
 
 <%= will_paginate %>
 
-<% @recipes.each do |recipe| %>
-  <div class="row">
-    <div class="col-md-2 v_center">
-      <section class="chef_info center">
-        <%= link_to gravatar_for(recipe.chef, size: 100), chef_path(recipe.chef) %>
-        <h5>Chef name: <%= recipe.chef.chefname %></h5>
-      </section>
-    </div>
-    
-    <div class="col-lg-6 well v_center">
-      <h4><%= link_to recipe.name, recipe_path(recipe) %></h4>
-      <p><%= recipe.summary %></p>
-      <p>
-        <span class="quiet">
-          <small>created: <%= time_ago_in_words(recipe.created_at) %> ago, </small>
-        </span>
-        <span class="quiet">
-          <small>updated: <%= time_ago_in_words(recipe.updated_at) %> ago</small>
-        </span>
-      </p>
+<div class="margin-top-20">
+  <% @recipes.each do |recipe| %>
+    <div class="row">
+      <div class="col-md-2 v_center">
+        <section class="chef_info center">
+          <%= link_to gravatar_for(recipe.chef, size: 100), chef_path(recipe.chef) %>
+          <h5>Chef name: <%= recipe.chef.chefname %></h5>
+        </section>
+      </div>
       
-      <%= render 'shared/like_dislike', current_user: current_user, recipe: recipe %>
+      <div class="col-lg-6 well v_center">
+        <h4><%= link_to recipe.name, recipe_path(recipe) %></h4>
+        <p><%= recipe.summary %></p>
+        <p>
+          <span class="quiet">
+            <small>created: <%= time_ago_in_words(recipe.created_at) %> ago, </small>
+          </span>
+          <span class="quiet">
+            <small>updated: <%= time_ago_in_words(recipe.updated_at) %> ago</small>
+          </span>
+        </p>
+        
+        <%= render 'shared/like_dislike', current_user: current_user, recipe: recipe %>
+        
+      </div>
+      
+      <div class="col-md-4 v_center img_col center"> 
+        <%= image_tag(recipe.picture.url, class: "gravatar index_recipe_img") if recipe.picture? %>
+      </div>
       
     </div>
-    
-    <div class="col-md-4 v_center img_col center"> 
-      <%= image_tag(recipe.picture.url, class: "gravatar index_recipe_img") if recipe.picture? %>
-    </div>
-    
-  </div>
-  <hr />
-<% end %>
+    <hr />
+  <% end %>
+</div>
 
 <%= will_paginate %>

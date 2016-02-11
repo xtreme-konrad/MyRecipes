@@ -14,22 +14,24 @@
   </div>
 </div>
 
-<% @recipes.each do |recipe| %>
-  <div class="row">
-    <div class="col-lg-6 well col-lg-offset-3">
-      <h4><%= link_to recipe.name, recipe_path(recipe) %></h4>
-      <p><%= recipe.summary %></p>
-      <p>
-        <span class="quiet">
-          <small>created: <%= time_ago_in_words(recipe.created_at) %> ago, </small>
-        </span>
-        <span class="quiet">
-          <small>updated: <%= time_ago_in_words(recipe.updated_at) %> ago</small>
-        </span>
-      </p>
-      
-      <%= render 'shared/like_dislike', recipe: recipe, current_user: @chef %>
-      
+<div class="margin-top-40">
+  <% @recipes.each do |recipe| %>
+    <div class="row">
+      <div class="col-lg-6 well col-lg-offset-3">
+        <h4><%= link_to recipe.name, recipe_path(recipe) %></h4>
+        <p><%= recipe.summary %></p>
+        <p>
+          <span class="quiet">
+            <small>created: <%= time_ago_in_words(recipe.created_at) %> ago, </small>
+          </span>
+          <span class="quiet">
+            <small>updated: <%= time_ago_in_words(recipe.updated_at) %> ago</small>
+          </span>
+        </p>
+        
+        <%= render 'shared/like_dislike', recipe: recipe, current_user: @chef %>
+        
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
