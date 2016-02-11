@@ -17,4 +17,7 @@ Rails.application.routes.draw do
   
   resources :chefs, except: [:new]
   
+  resources :ingredients, only: [:new, :create, :show]
+  resources :styles, only: [:new, :create, :show]
+  
 end
