@@ -29,6 +29,7 @@ body {
 
 .alert {
     margin-top: 20px;
+    margin-bottom: 0px;
 }
 
 .nav_item {
@@ -37,9 +38,10 @@ body {
     margin-top: 20px;
 }
 
-ul.nav_item {
+.nav_ul_item {
     padding-left: 25px;
-    margin-left: auto;
+    float: left;
+    margin-top: 20px;
 }
 
 .center {
