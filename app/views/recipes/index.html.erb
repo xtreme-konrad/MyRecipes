@@ -24,12 +24,13 @@
       <div class="col-lg-6 well v_center">
         <h4><%= link_to recipe.name, recipe_path(recipe) %></h4>
         <p><%= recipe.summary %></p>
+        
         <% if recipe.styles.any? %>
-          <p>Styles: <%= render recipe.styles %></p>
+          <p>Styles: <%= render :partial => "shared/style", :collection => recipe.styles, :spacer_template => "shared/comma" %></p>
         <% end %>
         
         <% if recipe.ingredients.any? %>
-          <p>Ingredients: <%= render recipe.ingredients %></p>
+          <p>Ingredients: <%= render :partial => "shared/ingredient", :collection => recipe.ingredients, :spacer_template => "shared/comma" %></p>
         <% end %>
         
         <p>
