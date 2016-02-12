@@ -9,9 +9,9 @@ class Recipe < ActiveRecord::Base
   validates :name, presence: true, 
                    length: { minimum: 5, maximum: 100 }
   validates :summary, presence: true, 
-                      length: { minimum: 10, maximum: 150 }
+                      length: { minimum: 10 }
   validates :description, presence: true, 
-                          length: { minimum: 20, maximum: 500 }
+                          length: { minimum: 20 }
   validates :chef_id, presence: true
   
   mount_uploader :picture, PictureUploader
