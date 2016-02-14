@@ -68,3 +68,15 @@
     <% end %>
   </div>
 </header>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.dropdown').on('shown.bs.dropdown', function () {
+      $("body").addClass("modal-open");
+    });
+    
+    $('.dropdown').on('hidden.bs.dropdown', function () {
+      $("body").removeClass("modal-open");
+    });
+  });
+</script>

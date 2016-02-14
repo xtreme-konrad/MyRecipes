@@ -45,8 +45,12 @@ body {
 }
 
 .dropdown-menu {
-    max-height: 500px;
+    max-height: 400px;
     overflow-y: auto;
+}
+
+body.modal-open {
+    overflow: hidden;
 }
 
 .center {
