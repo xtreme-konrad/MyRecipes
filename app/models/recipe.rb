@@ -1,6 +1,7 @@
 class Recipe < ActiveRecord::Base
   belongs_to :chef
   has_many :likes, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   has_many :recipe_styles, dependent: :destroy
   has_many :styles, through: :recipe_styles
   has_many :recipe_ingredients, dependent: :destroy
@@ -33,6 +34,10 @@ class Recipe < ActiveRecord::Base
   
   def user_disliked(current_user)
     self.likes.where(chef: current_user, like: false).any?
+  end
+  
+  def user_reviewed(current_user)
+    self.reviews.where(chef: current_user).any?
   end
   
   private

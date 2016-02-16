@@ -1,8 +1,10 @@
 class Chef < ActiveRecord::Base
   has_many :recipes
   has_many :likes
+  has_many :reviews
   
   before_save { self.email = email.downcase }
+  before_save { self.chefname = chefname.capitalize }
   
   validates :chefname, presence: true, 
                        length: { minimum: 3, maximum: 40 }
@@ -14,12 +16,4 @@ class Chef < ActiveRecord::Base
                     format: { with: VALID_EMAIL_REGEX }
                     
   has_secure_password
-  
-  def chefname=(chefname)
-    write_attribute(:chefname, chefname.capitalize)
-  end
-
-  def chefname
-    read_attribute(:chefname).try(:titleize)
-  end
 end

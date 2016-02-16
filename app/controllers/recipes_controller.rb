@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: [:edit, :update, :show, :like]
+  before_action :set_recipe, only: [:edit, :update, :show, :like, :review]
   before_action :require_user, except: [:show, :index]
   before_action :require_same_user, only: [:edit, :update]
   before_action :admin_user, only: [:destroy]
@@ -54,6 +54,22 @@ class RecipesController < ApplicationController
       flash[:danger] = "You can only like/dislike a recipe once"
     end
     
+    redirect_to :back
+  end
+  
+  def review
+    review = Review.create(content: params[:content], chef: current_user, recipe: @recipe)
+
+    if (review.valid?)
+      flash[:success] = "Your review was added successfully"
+    else
+      flash[:danger] = "Review " + review.errors.full_messages.first.downcase
+    end
+    
+    redirect_to :back
+  end
+  
+  def add_review
     redirect_to :back
   end
 

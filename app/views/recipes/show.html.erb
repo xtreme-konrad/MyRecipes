@@ -46,3 +46,53 @@
 </div>
 
 <h5><%= link_to "Return to Recipes Listing", recipes_path, class:"btn btn-warning btn-small" %></h5>
+
+<h2 class="left margin-top-40 margin-bottom-0 review_title">Reviews <span class="review_count"><%= @recipe.reviews.count %></span></h2>
+    
+<hr class="margin-top-10" />
+
+<% if !logged_in? %>
+  <div class="unauth_review_footer">
+    <p>You must be signed in to add a review.</p>
+    <p>Please <strong><%= link_to "Log in", login_path %></strong> or <strong><%= link_to "Sign up", register_path %></strong></p>
+  </div>
+<% elsif !@recipe.user_reviewed(current_user) %>
+  <div class="review">
+    <div class="review_header">
+      <div class="review_header_left">
+        <%= gravatar_for(current_user, size:50) %>
+        <div class="margin-left-10"><%= current_user.chefname %></div>
+      </div>
+    </div>
+    
+    <hr class="margin-top-10 margin-bottom-10" />
+
+    <%= form_tag review_recipe_path(@recipe)  do %>
+      <%= text_area_tag :content, nil, :rows => 5, :placeholder => "Leave a review!" %>
+      <%= submit_tag 'Post Review', class: 'btn btn-success review_submit' %>
+    <% end %>
+  </div>
+<% end %>
+
+<% @recipe.reviews.each do |review| %>
+  <div class="review">
+    <%= link_to chef_path(review.chef) do %>
+      <div class="review_header">
+        <div class="review_header_left">
+          <%= gravatar_for(review.chef, size:50) %>
+        <div class="margin-left-10"><%= review.chef.chefname %></div>
+      </div><div class="review_header_right">
+          <div class="review_timestamp">
+            <%= review.created_at.strftime("%d/%m/%Y") %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+     
+    <hr class="margin-top-10 margin-bottom-10" />
+     
+    <div class="review_body">
+      <%= simple_format(review.content) %>
+    </div>
+  </div>
+<% end %>

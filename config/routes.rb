@@ -11,6 +11,10 @@ Rails.application.routes.draw do
 
   resources :recipes do
     member do
+      post 'review'
+    end
+    
+    member do
       post 'like'
     end
   end
