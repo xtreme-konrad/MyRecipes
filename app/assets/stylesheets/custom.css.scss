@@ -27,6 +27,18 @@ body {
     padding-top: 80px;
 }
 
+.jumbotron {
+    background: #000 url("jumbotron-bg.jpg") center center;
+    
+    .well {
+        background-color: rgba(245, 245, 245, 0.85);
+    }
+}
+
+.jumbotron-text {
+    background-color: white;
+}
+
 .alert {
     margin-top: 20px;
     margin-bottom: 0px;
@@ -181,4 +193,8 @@ span.picture {
 
 .margin-top-40 {
     margin-top: 40px;
+}
+
+.padding-left-30 {
+    padding-left: 30px;
 }
