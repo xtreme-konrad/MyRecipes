@@ -10,7 +10,8 @@
 }
 
 .rating_star {
-    background: image-url("star_unfilled.png") center center;
+    background: image-url("star_sprite.png") no-repeat;
+    background-position: 0 -40px;
     width: 40px;
     height: 40px;
     display: inline-block;
@@ -33,7 +34,7 @@
 }
 
 .on {
-    background: image-url("star_filled.png") center center;
+    background-position: 0 0;
 }
 
 .on_small {
