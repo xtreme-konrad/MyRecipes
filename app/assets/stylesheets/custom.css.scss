@@ -28,7 +28,7 @@ body {
 }
 
 .jumbotron {
-    background: #000 url("jumbotron-bg.jpg") center center;
+    background: #000 image-url("jumbotron-bg.jpg") center center;
     
     .well {
         background-color: rgba(245, 245, 245, 0.85);

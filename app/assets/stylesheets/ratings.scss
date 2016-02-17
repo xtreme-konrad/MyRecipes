@@ -10,7 +10,7 @@
 }
 
 .rating_star {
-    background: url("star_unfilled.png") center center;
+    background: image-url("star_unfilled.png") center center;
     width: 40px;
     height: 40px;
     display: inline-block;
@@ -19,7 +19,7 @@
 }
 
 .rating_star_small {
-    background: url("star_unfilled_small.png") center center;
+    background: image-url("star_unfilled_small.png") center center;
     width: 24px;
     height: 24px;
     display: inline-block;
@@ -33,9 +33,9 @@
 }
 
 .on {
-    background: url("star_filled.png") center center;
+    background: image-url("star_filled.png") center center;
 }
 
 .on_small {
-    background: url("star_filled_small.png") center center;
+    background: image-url("star_filled_small.png") center center;
 }
