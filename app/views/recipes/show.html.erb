@@ -63,7 +63,6 @@
         <%= gravatar_for(current_user, size:50) %>
         <div class="margin-left-10"><%= current_user.chefname %></div>
       </div><div class="review_header_right">
-        <img src="star_filled.png" style="display:none;" alt="" />
         <ul class="rating">
           <% (1..5).each do |i| %>
             <li class="rating_star" data-stars=<%= i %> id=<%= "li_rating_#{i}" %>></li>
@@ -116,6 +115,9 @@
 
 <script type="text/javascript">
   $(document).ready(function () {
+    var preloadImage = new Image();
+    preloadImage.src = "/assets/star_filled.png";
+    
     $('.rating_star').click(function() {
       var stars = $(this).attr('data-stars');
       
