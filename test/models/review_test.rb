@@ -6,7 +6,7 @@ class ReviewTest < ActiveSupport::TestCase
     @chef = Chef.create(chefname:"test name", email:"test@example.com", password:"password")
     @recipe = @chef.recipes.create(name: "test name", summary: "test summary", description: "test description long")
     
-    @review = @recipe.reviews.create(content: "test review content", chef: @chef)
+    @review = @recipe.reviews.create(content: "test review content", chef: @chef, rating: 3)
   end
   
   test "review should be valid" do
@@ -36,6 +36,16 @@ class ReviewTest < ActiveSupport::TestCase
   test "chef reviews should be unique per recipe" do
     new_review = @recipe.reviews.create(content: "test review content", chef: @chef)
     assert_not new_review.valid?
+  end
+  
+  test "rating should not be less than 0" do
+    @review.rating = -1
+    assert_not @review.valid?
+  end
+  
+  test "rating should not be more than 5" do
+    @review.rating = 6
+    assert_not @review.valid?
   end
   
 end

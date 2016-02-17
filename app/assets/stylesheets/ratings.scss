@@ -1,0 +1,41 @@
+.rating {
+    margin: 0;
+    padding-left: 0px;
+}
+
+.rating_small {
+    margin: 0;
+    padding-left: 0px;
+    margin-bottom: -3px;
+}
+
+.rating_star {
+    background: url("star_unfilled.png") center center;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.rating_star_small {
+    background: url("star_unfilled_small.png") center center;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -3px;
+    margin-bottom: -6px;
+}
+
+.rating_radio {
+    display: none;
+}
+
+.on {
+    background: url("star_filled.png") center center;
+}
+
+.on_small {
+    background: url("star_filled_small.png") center center;
+}

@@ -62,14 +62,25 @@
       <div class="review_header_left">
         <%= gravatar_for(current_user, size:50) %>
         <div class="margin-left-10"><%= current_user.chefname %></div>
+      </div><div class="review_header_right">
+        <img src="star_filled.png" style="display:none;" alt="" />
+        <ul class="rating">
+          <% (1..5).each do |i| %>
+            <li class="rating_star" data-stars=<%= i %> id=<%= "li_rating_#{i}" %>></li>
+          <% end %>
+        </ul>
       </div>
     </div>
-    
+
     <hr class="margin-top-10 margin-bottom-10" />
 
     <%= form_tag review_recipe_path(@recipe)  do %>
       <%= text_area_tag :content, nil, :rows => 5, :placeholder => "Leave a review!" %>
       <%= submit_tag 'Post Review', class: 'btn btn-success review_submit' %>
+      
+      <% (0..5).each do |i| %>
+        <%= radio_button_tag :rating, i, i == 0, class: 'rating_radio' %> 
+      <% end %>
     <% end %>
   </div>
 <% end %>
@@ -78,13 +89,19 @@
   <div class="review">
     <%= link_to chef_path(review.chef) do %>
       <div class="review_header">
-        <div class="review_header_left">
+        <div class="review_header_left_large">
           <%= gravatar_for(review.chef, size:50) %>
-        <div class="margin-left-10"><%= review.chef.chefname %></div>
-      </div><div class="review_header_right">
-          <div class="review_timestamp">
-            <%= review.created_at.strftime("%d/%m/%Y") %>
+          <div class="margin-left-10"><%= review.chef.chefname %>
           </div>
+        </div><div class="review_header_right_small">
+            <ul class="rating_small">
+              <% (1..5).each do |i| %>
+                <li class="rating_star_small <%= 'on_small' if i <= review.rating %>" %></li>
+              <% end %>
+            </ul>
+            <div class="review_timestamp">
+              <%= review.created_at.strftime("%d/%m/%Y") %>
+            </div>
         </div>
       </div>
     <% end %>
@@ -96,3 +113,21 @@
     </div>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('.rating_star').click(function() {
+      var stars = $(this).attr('data-stars');
+      
+      for(i=1; i<=5; i++) {
+        if(i <= stars) {
+          $('#li_rating_' + i).addClass('on');
+        } else {
+          $('#li_rating_' + i).removeClass('on');
+        }
+      }
+      
+      $('#rating_' + stars).prop("checked", true);
+    });
+  });
+</script>

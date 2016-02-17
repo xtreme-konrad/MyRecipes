@@ -209,6 +209,7 @@ span.picture {
 .review_header {
     font-size: 20px;
     color: black;
+    height: 50px;
 
     div {
         display: inline-block;
@@ -216,17 +217,28 @@ span.picture {
 }
 
 .review_header_left {
-    width: 90%;
+    width: 80%;
+}
+
+.review_header_left_large {
+    width: 87%;
+    vertical-align: top;
 }
 
 .review_header_right {
-    width: 10%;
+    width: 20%;
+}
+
+.review_header_right_small {
+    width: 13%;
+    height: 50px;
 }
 
 .review_timestamp {
-    font-size: 15px;
+    font-size: 12px;
     font-style: italic;
-    text-align: right;
+    text-align: center;
+    padding-right: 7px;
     width: 100%;
     color: #808080;
 }

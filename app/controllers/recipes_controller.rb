@@ -58,7 +58,7 @@ class RecipesController < ApplicationController
   end
   
   def review
-    review = Review.create(content: params[:content], chef: current_user, recipe: @recipe)
+    review = Review.create(content: params[:content], rating: params[:rating], chef: current_user, recipe: @recipe)
 
     if (review.valid?)
       flash[:success] = "Your review was added successfully"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160216155850) do
+ActiveRecord::Schema.define(version: 20160217154323) do
 
   create_table "chefs", force: :cascade do |t|
     t.string   "chefname"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20160216155850) do
     t.integer  "recipe_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "rating"
   end
 
   create_table "styles", force: :cascade do |t|
