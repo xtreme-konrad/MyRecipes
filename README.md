@@ -1,5 +1,6 @@
-A practice app I made while learning Ruby on Rails.
+A practice app I made while learning Ruby on Rails.  
 Check it out here: http://www.rails-practice-recipes.herokuapp.com/recipes
+
 
 What I focused on:
 - Rails MVC structure
