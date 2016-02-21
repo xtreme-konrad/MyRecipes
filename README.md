@@ -1,5 +1,5 @@
 A practice app I made while learning Ruby on Rails.  
-Check it out here: http://rails-practice-recipes.herokuapp.com/recipes
+Check it out here: http://rails-practice-recipes.herokuapp.com/
 
 
 What I focused on:
