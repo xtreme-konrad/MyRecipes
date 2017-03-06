@@ -19,6 +19,7 @@ gem 'net-ssh'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
+  gem 'capybara'
   gem 'byebug'
   gem 'sqlite3'
   gem 'pry'
